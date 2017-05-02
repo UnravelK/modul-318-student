@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwissTransport;
 
 namespace SwissTransportGUI
 { 
 
     public partial class MainForm : Form
     {
-        VerbindungenControl VerbindungenControl = new VerbindungenControl();
-        StationsfahrplanControl StationsfahrplanControl = new StationsfahrplanControl();
+        private ITransport Transport;
+        private VerbindungenControl VerbindungenControl = new VerbindungenControl();
+        private StationsfahrplanControl StationsfahrplanControl = new StationsfahrplanControl();
         public MainForm()
         {
             InitializeComponent();

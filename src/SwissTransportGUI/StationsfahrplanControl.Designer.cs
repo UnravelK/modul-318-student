@@ -28,45 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblTitel = new System.Windows.Forms.Label();
+            this.lblStation = new System.Windows.Forms.Label();
+            this.cbStation = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lblTitel.AutoSize = true;
+            this.lblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitel.Location = new System.Drawing.Point(0, 0);
+            this.lblTitel.Name = "lblTitel";
+            this.lblTitel.Size = new System.Drawing.Size(153, 25);
+            this.lblTitel.TabIndex = 0;
+            this.lblTitel.Text = "Stationsfahrplan";
             // 
-            // label2
+            // lblStation
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lblStation.AutoSize = true;
+            this.lblStation.Location = new System.Drawing.Point(25, 46);
+            this.lblStation.Name = "lblStation";
+            this.lblStation.Size = new System.Drawing.Size(56, 17);
+            this.lblStation.TabIndex = 1;
+            this.lblStation.Text = "Station:";
             // 
-            // comboBox1
+            // cbStation
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 2;
+            this.cbStation.FormattingEnabled = true;
+            this.cbStation.Location = new System.Drawing.Point(83, 46);
+            this.cbStation.Name = "cbStation";
+            this.cbStation.Size = new System.Drawing.Size(172, 24);
+            this.cbStation.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(250, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(275, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 120);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -75,9 +76,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbStation);
+            this.Controls.Add(this.lblStation);
+            this.Controls.Add(this.lblTitel);
             this.Name = "StationsfahrplanControl";
             this.Size = new System.Drawing.Size(500, 500);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -88,9 +89,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblTitel;
+        private System.Windows.Forms.Label lblStation;
+        private System.Windows.Forms.ComboBox cbStation;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

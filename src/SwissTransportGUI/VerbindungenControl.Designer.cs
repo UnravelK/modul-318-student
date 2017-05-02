@@ -29,99 +29,113 @@
         private void InitializeComponent()
         {
             this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblVon = new System.Windows.Forms.Label();
+            this.lblNach = new System.Windows.Forms.Label();
+            this.lblTitel = new System.Windows.Forms.Label();
+            this.cbNach = new System.Windows.Forms.ComboBox();
+            this.cbVon = new System.Windows.Forms.ComboBox();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDatum = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // datePicker
             // 
             this.datePicker.CustomFormat = "dd.MM.yyyy";
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(67, 179);
+            this.datePicker.Location = new System.Drawing.Point(83, 136);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(108, 22);
             this.datePicker.TabIndex = 11;
             this.datePicker.Value = new System.DateTime(2017, 5, 2, 14, 36, 11, 0);
             // 
-            // label3
+            // lblVon
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
+            this.lblVon.AutoSize = true;
+            this.lblVon.Location = new System.Drawing.Point(25, 46);
+            this.lblVon.Name = "lblVon";
+            this.lblVon.Size = new System.Drawing.Size(37, 17);
+            this.lblVon.TabIndex = 10;
+            this.lblVon.Text = "Von:";
             // 
-            // label2
+            // lblNach
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.lblNach.AutoSize = true;
+            this.lblNach.Location = new System.Drawing.Point(25, 82);
+            this.lblNach.Name = "lblNach";
+            this.lblNach.Size = new System.Drawing.Size(45, 17);
+            this.lblNach.TabIndex = 9;
+            this.lblNach.Text = "Nach:";
             // 
-            // label1
+            // lblTitel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.lblTitel.AutoSize = true;
+            this.lblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitel.Location = new System.Drawing.Point(0, 0);
+            this.lblTitel.Name = "lblTitel";
+            this.lblTitel.Size = new System.Drawing.Size(135, 25);
+            this.lblTitel.TabIndex = 8;
+            this.lblTitel.Text = "Verbindungen";
             // 
-            // comboBox2
+            // cbNach
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(120, 102);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 7;
+            this.cbNach.FormattingEnabled = true;
+            this.cbNach.Location = new System.Drawing.Point(83, 82);
+            this.cbNach.Name = "cbNach";
+            this.cbNach.Size = new System.Drawing.Size(172, 24);
+            this.cbNach.TabIndex = 7;
             // 
-            // comboBox1
+            // cbVon
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 6;
+            this.cbVon.FormattingEnabled = true;
+            this.cbVon.Location = new System.Drawing.Point(83, 46);
+            this.cbVon.Name = "cbVon";
+            this.cbVon.Size = new System.Drawing.Size(172, 24);
+            this.cbVon.TabIndex = 6;
+            this.cbVon.TextChanged += new System.EventHandler(this.cbVon_TextChanged);
             // 
             // timePicker
             // 
             this.timePicker.CustomFormat = "hh:mm";
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timePicker.Location = new System.Drawing.Point(181, 179);
+            this.timePicker.Location = new System.Drawing.Point(197, 136);
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(58, 22);
             this.timePicker.TabIndex = 12;
             // 
-            // label4
+            // lblDatum
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
+            this.lblDatum.AutoSize = true;
+            this.lblDatum.Location = new System.Drawing.Point(25, 136);
+            this.lblDatum.Name = "lblDatum";
+            this.lblDatum.Size = new System.Drawing.Size(53, 17);
+            this.lblDatum.TabIndex = 13;
+            this.lblDatum.Text = "Datum:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(370, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VerbindungenControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.timePicker);
             this.Controls.Add(this.datePicker);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblVon);
+            this.Controls.Add(this.lblNach);
+            this.Controls.Add(this.lblTitel);
+            this.Controls.Add(this.cbNach);
+            this.Controls.Add(this.cbVon);
             this.Name = "VerbindungenControl";
             this.Size = new System.Drawing.Size(500, 500);
             this.ResumeLayout(false);
@@ -132,12 +146,13 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblVon;
+        private System.Windows.Forms.Label lblNach;
+        private System.Windows.Forms.Label lblTitel;
+        private System.Windows.Forms.ComboBox cbNach;
+        private System.Windows.Forms.ComboBox cbVon;
         private System.Windows.Forms.DateTimePicker timePicker;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDatum;
+        private System.Windows.Forms.Button button1;
     }
 }

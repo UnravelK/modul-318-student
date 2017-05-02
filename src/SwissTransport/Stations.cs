@@ -31,6 +31,11 @@ namespace SwissTransport
 
         [JsonProperty("distance")]
         public double? Distance { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 
     public class Stations
