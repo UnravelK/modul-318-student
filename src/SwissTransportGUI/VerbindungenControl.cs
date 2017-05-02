@@ -23,13 +23,11 @@ namespace SwissTransportGUI
         {
             Stations Stations = Transport.GetStations(cbVon.Text);
             cbVon.Items.Clear();
-            //Stations.StationList.OrderBy(s => s.Score);
             foreach (Station s in Stations.StationList)
             {
                 cbVon.Items.Add(s);
             }
             cbVon.DroppedDown = true;
-            cbVon.Focus();
             cbVon.SelectionStart = cbVon.Text.Length;
         }
 
