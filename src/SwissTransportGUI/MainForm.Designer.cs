@@ -52,14 +52,14 @@
             this.verbindungenToolStripMenuItem.Name = "verbindungenToolStripMenuItem";
             this.verbindungenToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.verbindungenToolStripMenuItem.Text = "Verbindungen";
-            this.verbindungenToolStripMenuItem.Click += new System.EventHandler(this.verbindungenToolStripMenuItem_Click);
+            this.verbindungenToolStripMenuItem.Click += new System.EventHandler(this.VerbindungenToolStripMenuItem_Click);
             // 
             // stationsfahrplanToolStripMenuItem
             // 
             this.stationsfahrplanToolStripMenuItem.Name = "stationsfahrplanToolStripMenuItem";
             this.stationsfahrplanToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
             this.stationsfahrplanToolStripMenuItem.Text = "Stationsfahrplan";
-            this.stationsfahrplanToolStripMenuItem.Click += new System.EventHandler(this.stationsfahrplanToolStripMenuItem_Click);
+            this.stationsfahrplanToolStripMenuItem.Click += new System.EventHandler(this.StationsfahrplanToolStripMenuItem_Click);
             // 
             // mainPanel
             // 

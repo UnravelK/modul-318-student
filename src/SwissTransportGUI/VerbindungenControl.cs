@@ -19,22 +19,23 @@ namespace SwissTransportGUI
             InitializeComponent();
         }
 
-        private void cbVon_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void CbVon_TextChanged(object sender, EventArgs e)
         {
             Stations Stations = Transport.GetStations(cbVon.Text);
             cbVon.Items.Clear();
-            if (Stations != null)
+            //Stations.StationList.OrderBy(s => s.Score);
+            foreach (Station s in Stations.StationList)
             {
-                foreach (Station s in Stations.StationList)
-                {
-                    cbVon.Items.Add(s);
-                }
+                cbVon.Items.Add(s);
             }
+            cbVon.DroppedDown = true;
+            cbVon.Focus();
+            cbVon.SelectionStart = cbVon.Text.Length;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

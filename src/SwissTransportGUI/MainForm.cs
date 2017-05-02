@@ -14,7 +14,6 @@ namespace SwissTransportGUI
 
     public partial class MainForm : Form
     {
-        private ITransport Transport;
         private VerbindungenControl VerbindungenControl = new VerbindungenControl();
         private StationsfahrplanControl StationsfahrplanControl = new StationsfahrplanControl();
         public MainForm()
@@ -23,13 +22,13 @@ namespace SwissTransportGUI
             Controls.OfType<Panel>().First().Controls.Add(VerbindungenControl);
         }
 
-        private void verbindungenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void VerbindungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Controls.OfType<Panel>().First().Controls.Clear();
             Controls.OfType<Panel>().First().Controls.Add(VerbindungenControl);
         }
 
-        private void stationsfahrplanToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StationsfahrplanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Controls.OfType<Panel>().First().Controls.Clear();
             Controls.OfType<Panel>().First().Controls.Add(StationsfahrplanControl);
