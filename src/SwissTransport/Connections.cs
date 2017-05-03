@@ -14,31 +14,54 @@ namespace SwissTransport
     /// </summary>
     public class ConnectionInfo
     {
-        Connection Connection;
-        string travelDuration;
-        ConnectionInfo(Connection Connection)
+        public string travelDuration;
+        public string startTime;
+        public string endTime;
+        public string startName;
+        public string endName;
+        public string startPlatform;
+        public ConnectionInfo(ConnectionPoint From, ConnectionPoint To, string Duration)
         {
-            this.Connection = Connection;
+            SetTimes(From, To);
+            SetDuration(Duration);
+            SetNames(From, To);
+            SetStartPlatform(From);
         }
-        public static DateTime DateTimeFromTimeStamp(double timeStamp)
+        private void SetTimes(ConnectionPoint From, ConnectionPoint To)
         {
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(timeStamp).ToLocalTime();
-            return dtDateTime;
+            startTime = Convert.ToDateTime(From.Departure).ToShortTimeString();
+            endTime = Convert.ToDateTime(To.Arrival).ToShortTimeString();
         }
 
-        public string GetDuration(string unfromattedDuration)
+        private void SetDuration(string Duration)
         {
-            string[] tempString = unfromattedDuration.Split('d')[1].Split(':');
-            string minutes = tempString[1];
-            if (minutes[0] == '0') minutes = minutes[1].ToString();
-            string hours = tempString[0];
-            if (hours == "00") return minutes + " min";
-            if (hours[0] == '0') return hours[1] + " h " + minutes + " min";
-            return hours + " h " + minutes + " min"; ;
+            string[] temp = Duration.Split('d')[1].Split(':');
+            string hours = temp[0];
+            string minutes = temp[1];
+            if (hours == "00")
+            {
+                travelDuration = minutes + " min";
+                return;
+            }
+            else if (hours[0] == '0')
+            {
+                travelDuration = hours[1] + " h " + minutes + " m";
+                return;
+            }
+            travelDuration = hours + " h " + minutes + " m";
+        }
+
+        private void SetNames(ConnectionPoint From, ConnectionPoint To)
+        {
+            startName = From.Station.Name;
+            endName = To.Station.Name;
+        }
+
+        private void SetStartPlatform(ConnectionPoint From)
+        {
+            startPlatform = "Gleis. " + From.Platform;
         }
     }
-
 
     public class Connection
     {
@@ -53,8 +76,8 @@ namespace SwissTransport
 
         public override string ToString()
         {
-            string returnValue = string.Empty;
-            return returnValue;
+            ConnectionInfo CF = new ConnectionInfo(From, To, Duration);
+            return CF.startName + "\t" + CF.startPlatform + "\t" + CF.startTime + "\t" + CF.endName + "\t" + CF.endTime;
         }
     }
 
