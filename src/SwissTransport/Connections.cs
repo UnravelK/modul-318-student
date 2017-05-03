@@ -22,7 +22,7 @@ namespace SwissTransport
         public string _startPlatform;
 
         /// <summary>
-        /// Formatiert die Informationen.
+        /// Formatiert die mitgegebenen Informationen.
         /// </summary>
         /// <param name="ConnectionPointFrom">Der ConnectionPoint von welchem gestartet wird.</param>
         /// <param name="ConnectionPoinTo">Der ConnectionPoint des Zieles.</param>

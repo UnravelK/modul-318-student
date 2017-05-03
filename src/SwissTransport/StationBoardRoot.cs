@@ -22,7 +22,7 @@ namespace SwissTransport
         public string _depatureTime;
 
         /// <summary>
-        /// Formatiert die Informationen.
+        /// Formatiert die mitgegebenen Informationen.
         /// </summary>
         /// <param name="dtDeparture">Der Abfahrtszeitpunkt der Verbindung.</param>
         /// <param name="vehicleName">Der name des Verkehrsmittel welches benützt wird.</param>

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace SwissTransportGUI
 {
+    /// <summary>
+    /// Stellt funktionen für das GUI zur verfügung.
+    /// </summary>
     class GUIFunctions
     {
         private ITransport _Transport = new Transport();
@@ -15,7 +18,7 @@ namespace SwissTransportGUI
         public GUIFunctions() { }
 
         /// <summary>
-        /// Hilft bei der vervollständigung der Eingabe von Stationen in einer ComboBox.
+        /// Bietet eine Vervollständigungsauswahl von Stationen in einer ComboBox an.
         /// </summary>
         /// <param name="cbTarget">Die ComboBox welche die Suchhilfe erhalten soll.</param>
         public async Task SearchStationsHelper(ComboBox cbTarget)
