@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using System;
 
 namespace SwissTransport
 {
@@ -20,13 +20,21 @@ namespace SwissTransport
         public string _startStationName;
         public string _endStationName;
         public string _startPlatform;
-        public ConnectionInfo(ConnectionPoint From, ConnectionPoint To, string Duration)
+
+        /// <summary>
+        /// Formatiert die Informationen.
+        /// </summary>
+        /// <param name="ConnectionPointFrom">Der ConnectionPoint von welchem gestartet wird.</param>
+        /// <param name="ConnectionPoinTo">Der ConnectionPoint des Zieles.</param>
+        /// <param name="duration">Die Dauer der Reise.</param>
+        public ConnectionInfo(ConnectionPoint ConnectionPointFrom, ConnectionPoint ConnectionPoinTo, string duration)
         {
-            SetTimes(From, To);
-            SetDuration(Duration);
-            SetNames(From, To);
-            SetStartPlatform(From);
+            SetTimes(ConnectionPointFrom, ConnectionPoinTo);
+            SetDuration(duration);
+            SetNames(ConnectionPointFrom, ConnectionPoinTo);
+            SetStartPlatform(ConnectionPointFrom);
         }
+
         private void SetTimes(ConnectionPoint From, ConnectionPoint To)
         {
             _departureTime = Convert.ToDateTime(From.Departure).ToShortTimeString();
@@ -73,7 +81,10 @@ namespace SwissTransport
 
         [JsonProperty("duration")]
         public string Duration { get; set; }
-
+        /// <summary>
+        /// Überschreibt die ToString-Methode von der Klasse Connection.
+        /// </summary>
+        /// <returns>Die formatierten Verbindungsinformationen.</returns>
         public override string ToString()
         {
             ConnectionInfo CF = new ConnectionInfo(From, To, Duration);

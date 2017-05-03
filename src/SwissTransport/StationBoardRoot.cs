@@ -20,10 +20,17 @@ namespace SwissTransport
         public string _name;
         public string _targetLocation;
         public string _depatureTime;
-        public StationBoardInfo(DateTime dtDeparture, string name, string to)
+
+        /// <summary>
+        /// Formatiert die Informationen.
+        /// </summary>
+        /// <param name="dtDeparture">Der Abfahrtszeitpunkt der Verbindung.</param>
+        /// <param name="vehicleName">Der name des Verkehrsmittel welches benützt wird.</param>
+        /// <param name="endStation">Die Richtung in welcher der Zug fährt.</param>
+        public StationBoardInfo(DateTime dtDeparture, string vehicleName, string endStation)
         {
-            SetName(name);
-            SetTargetLocation(to);
+            SetName(vehicleName);
+            SetTargetLocation(endStation);
             SetDepartureTime(dtDeparture);
         }
         private void SetName(string name)
@@ -61,7 +68,10 @@ namespace SwissTransport
 
         [JsonProperty("stop")]
         public Stop Stop { get; set; }
-
+        /// <summary>
+        /// Überschreibt die ToString-Methode von der Klasse StationBoard.
+        /// </summary>
+        /// <returns>Formatierte Stationsinformationen.</returns>
         public override string ToString()
         {
             StationBoardInfo SBI = new StationBoardInfo(Stop.Departure, Name, To);
