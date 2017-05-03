@@ -21,20 +21,29 @@ namespace SwissTransportGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SearchHelper(cbStation);
+            //SearchHelper(cbStation);
         }
 
         /// <summary>
         /// Hilft bei der vervollständigung der Eingabe.
         /// </summary>
         /// <param name="cb"></param>
-        public void SearchHelper(ComboBox cb)
+        public async Task SearchHelper(ComboBox cb)
         {
-            Stations Stations = _Transport.GetStations(cb.Text + ",");
-            cb.Items.Clear();
-            foreach (Station Station in Stations.StationList)
+            string text = cbStation.Text;
+            await Task.Delay(500);
+            if (text == cb.Text)
             {
-                cb.Items.Add(Station);
+                Stations Stations = _Transport.GetStations(cb.Text + ",");
+                cb.Items.Clear();
+                //cb.DropDownHeight = Stations.StationList.Count * cb.ItemHeight;
+                cb.DroppedDown = true;
+                cb.Items.AddRange(Stations.StationList.ToArray());
+                /*foreach (Station Station in Stations.StationList)
+                {
+                    cb.Items.Add(Station);
+                }*/
+                cb.SelectionStart = cb.Text.Length;
             }
         }
 
@@ -43,11 +52,17 @@ namespace SwissTransportGUI
             lb.Items.Clear();
             Station Station = (Station)cbStation.SelectedItem;
             StationBoardRoot StationBoardRoot = _Transport.GetStationBoard(Station.Name, Station.Id);
-            foreach(StationBoard StationBoard in StationBoardRoot.Entries)
+            foreach (StationBoard StationBoard in StationBoardRoot.Entries)
             {
                 lb.Items.Add(StationBoard);
             }
             lblStationName.Text = StationBoardRoot.Station.Name;
+        }
+
+        private async void cbStation_TextUpdate(object sender, EventArgs e)
+        {
+            await SearchHelper(cbStation);
+           
         }
     }
 }

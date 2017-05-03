@@ -65,6 +65,7 @@
             this.cbStation.Name = "cbStation";
             this.cbStation.Size = new System.Drawing.Size(172, 24);
             this.cbStation.TabIndex = 2;
+            this.cbStation.TextUpdate += new System.EventHandler(this.cbStation_TextUpdate);
             // 
             // pictureBox1
             // 
