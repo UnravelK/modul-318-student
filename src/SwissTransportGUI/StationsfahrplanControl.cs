@@ -17,7 +17,7 @@ namespace SwissTransportGUI
             _GUIFunctions.DisplayStationBoard(lbBoard, lblStation, cbStation.SelectedItem);
         }
 
-        private async void CbStation_TextUpdate(object sender, EventArgs e)
+        private async void CbStation_TextChanged(object sender, EventArgs e)
         {
             await _GUIFunctions.SearchStationsHelper(cbStation);
         }

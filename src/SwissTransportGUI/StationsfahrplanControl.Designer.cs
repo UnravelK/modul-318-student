@@ -52,18 +52,17 @@
             this.lblStation.Location = new System.Drawing.Point(25, 46);
             this.lblStation.Name = "lblStation";
             this.lblStation.Size = new System.Drawing.Size(56, 17);
-            this.lblStation.TabIndex = 1;
+            this.lblStation.TabIndex = 0;
             this.lblStation.Text = "Station:";
             // 
             // cbStation
             // 
-            this.cbStation.FormattingEnabled = true;
             this.cbStation.Location = new System.Drawing.Point(83, 46);
             this.cbStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbStation.Name = "cbStation";
             this.cbStation.Size = new System.Drawing.Size(172, 24);
-            this.cbStation.TabIndex = 2;
-            this.cbStation.TextUpdate += new System.EventHandler(this.CbStation_TextUpdate);
+            this.cbStation.TabIndex = 0;
+            this.cbStation.TextChanged += new System.EventHandler(this.CbStation_TextChanged);
             // 
             // lbBoard
             // 
@@ -73,7 +72,7 @@
             this.lbBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbBoard.Name = "lbBoard";
             this.lbBoard.Size = new System.Drawing.Size(456, 292);
-            this.lbBoard.TabIndex = 5;
+            this.lbBoard.TabIndex = 2;
             this.lbBoard.Visible = false;
             // 
             // btnSearch
@@ -82,7 +81,7 @@
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Suchen";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSuchen_Click);
@@ -93,7 +92,7 @@
             this.lblStationName.Location = new System.Drawing.Point(25, 164);
             this.lblStationName.Name = "lblStationName";
             this.lblStationName.Size = new System.Drawing.Size(87, 17);
-            this.lblStationName.TabIndex = 7;
+            this.lblStationName.TabIndex = 0;
             this.lblStationName.Text = "Stationname";
             this.lblStationName.Visible = false;
             // 

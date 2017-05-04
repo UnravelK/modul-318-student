@@ -50,7 +50,7 @@
             this.datePicker.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(120, 22);
-            this.datePicker.TabIndex = 11;
+            this.datePicker.TabIndex = 3;
             this.datePicker.Value = new System.DateTime(2017, 5, 2, 0, 0, 0, 0);
             // 
             // lblVon
@@ -59,7 +59,7 @@
             this.lblVon.Location = new System.Drawing.Point(25, 46);
             this.lblVon.Name = "lblVon";
             this.lblVon.Size = new System.Drawing.Size(37, 17);
-            this.lblVon.TabIndex = 10;
+            this.lblVon.TabIndex = 0;
             this.lblVon.Text = "Von:";
             // 
             // lblNach
@@ -68,7 +68,7 @@
             this.lblNach.Location = new System.Drawing.Point(25, 82);
             this.lblNach.Name = "lblNach";
             this.lblNach.Size = new System.Drawing.Size(45, 17);
-            this.lblNach.TabIndex = 9;
+            this.lblNach.TabIndex = 0;
             this.lblNach.Text = "Nach:";
             // 
             // lblTitel
@@ -78,7 +78,7 @@
             this.lblTitel.Location = new System.Drawing.Point(0, 0);
             this.lblTitel.Name = "lblTitel";
             this.lblTitel.Size = new System.Drawing.Size(135, 25);
-            this.lblTitel.TabIndex = 8;
+            this.lblTitel.TabIndex = 0;
             this.lblTitel.Text = "Verbindungen";
             // 
             // cbNach
@@ -88,7 +88,7 @@
             this.cbNach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNach.Name = "cbNach";
             this.cbNach.Size = new System.Drawing.Size(212, 24);
-            this.cbNach.TabIndex = 7;
+            this.cbNach.TabIndex = 2;
             this.cbNach.TextChanged += new System.EventHandler(this.CbNach_TextChanged);
             // 
             // cbVon
@@ -98,7 +98,7 @@
             this.cbVon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbVon.Name = "cbVon";
             this.cbVon.Size = new System.Drawing.Size(212, 24);
-            this.cbVon.TabIndex = 6;
+            this.cbVon.TabIndex = 1;
             this.cbVon.TextChanged += new System.EventHandler(this.CbVon_TextChanged);
             // 
             // timePicker
@@ -112,7 +112,7 @@
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(65, 22);
-            this.timePicker.TabIndex = 12;
+            this.timePicker.TabIndex = 4;
             this.timePicker.Value = new System.DateTime(2017, 5, 2, 10, 10, 0, 0);
             // 
             // lblDatum
@@ -121,7 +121,7 @@
             this.lblDatum.Location = new System.Drawing.Point(25, 135);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(53, 17);
-            this.lblDatum.TabIndex = 13;
+            this.lblDatum.TabIndex = 0;
             this.lblDatum.Text = "Datum:";
             // 
             // btnSearch
@@ -130,7 +130,7 @@
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 16;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Suchen";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
@@ -143,7 +143,7 @@
             this.lbConnections.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbConnections.Name = "lbConnections";
             this.lbConnections.Size = new System.Drawing.Size(495, 308);
-            this.lbConnections.TabIndex = 17;
+            this.lbConnections.TabIndex = 6;
             this.lbConnections.Visible = false;
             // 
             // VerbindungenControl
