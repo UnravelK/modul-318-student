@@ -71,9 +71,9 @@ namespace SwissTransportGUI
         /// <param name="lbTarget">Die ListBox in welcher die Verbindungen angezeigt werden.</param>
         /// <param name="startStation">Name der Station von welcher gestartet werden soll.</param>
         /// <param name="targetStation">Name der Station zu welcher gefahren werden möchte.</param>
-        public void DisplayConnections(ListBox lbTarget, string startStation, string targetStaion)
+        public void DisplayConnections(ListBox lbTarget, string startStation, string targetStaion, DateTime dtDate)
         {
-            Connections Connections = _Transport.GetConnections(startStation, targetStaion);
+            Connections Connections = _Transport.GetConnections(startStation, targetStaion, dtDate);
             lbTarget.Items.Clear();
             lbTarget.Items.AddRange(Connections.ConnectionList.ToArray());
             lbTarget.Visible = true;

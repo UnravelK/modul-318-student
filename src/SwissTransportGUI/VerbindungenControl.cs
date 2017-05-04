@@ -10,6 +10,8 @@ namespace SwissTransportGUI
         public VerbindungenControl()
         {
             InitializeComponent();
+            datePicker.Value = DateTime.Now;
+            timePicker.Value = DateTime.Now;
         }
 
         private async void CbVon_TextChanged(object sender, EventArgs e)
@@ -24,7 +26,8 @@ namespace SwissTransportGUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _GUIFunction.DisplayConnections(lbConnections, cbVon.Text, cbNach.Text);
+            DateTime dtDate = new DateTime(datePicker.Value.Year, datePicker.Value.Month, datePicker.Value.Day, timePicker.Value.Hour, timePicker.Value.Minute, 0);
+            _GUIFunction.DisplayConnections(lbConnections, cbVon.Text, cbNach.Text, dtDate);
         }
     }
 }
