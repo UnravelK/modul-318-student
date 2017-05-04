@@ -24,7 +24,7 @@ namespace SwissTransportGUI
             await _GUIFunction.SearchStationsHelper(cbNach);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             DateTime dtDate = new DateTime(datePicker.Value.Year, datePicker.Value.Month, datePicker.Value.Day, timePicker.Value.Hour, timePicker.Value.Minute, 0);
             _GUIFunction.DisplayConnections(lbConnections, cbVon.Text, cbNach.Text, dtDate);

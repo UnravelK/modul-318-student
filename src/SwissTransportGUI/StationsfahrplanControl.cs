@@ -12,7 +12,7 @@ namespace SwissTransportGUI
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnSuchen_Click(object sender, EventArgs e)
         {
             _GUIFunctions.DisplayStationBoard(lbBoard, lblStation, cbStation.SelectedItem);
         }

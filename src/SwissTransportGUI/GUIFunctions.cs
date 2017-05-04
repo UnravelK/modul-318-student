@@ -1,10 +1,7 @@
-﻿using SwissTransport;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwissTransport;
 
 namespace SwissTransportGUI
 {
@@ -93,7 +90,7 @@ namespace SwissTransportGUI
         /// <param name="Coordinates">Die Coordinaten welche angezeigt werden.</param>
         private void DisplayMap(PictureBox pbMap, Coordinate Coordinates)
         {
-
+            
         }
 
         /// <summary>
