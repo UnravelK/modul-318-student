@@ -15,11 +15,11 @@ namespace SwissTransport
     /// <summary>
     /// Enthält formatierte Informationen über eine Stations-Anzeige.
     /// </summary>
-    public class StationBoardInfo
+    internal class StationBoardInfo
     {
-        public string _name;
-        public string _targetLocation;
-        public string _depatureTime;
+        internal string _name;
+        internal string _targetLocation;
+        internal string _depatureTime;
 
         /// <summary>
         /// Formatiert die mitgegebenen Informationen.
@@ -27,7 +27,7 @@ namespace SwissTransport
         /// <param name="dtDeparture">Der Abfahrtszeitpunkt der Verbindung.</param>
         /// <param name="vehicleName">Der name des Verkehrsmittel welches benützt wird.</param>
         /// <param name="endStation">Die Richtung in welcher der Zug fährt.</param>
-        public StationBoardInfo(DateTime dtDeparture, string vehicleName, string endStation)
+        internal StationBoardInfo(DateTime dtDeparture, string vehicleName, string endStation)
         {
             SetName(vehicleName);
             SetTargetLocation(endStation);

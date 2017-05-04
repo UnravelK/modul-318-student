@@ -12,14 +12,14 @@ namespace SwissTransport
     /// <summary>
     /// Enthält formatierte Informationen über eine Verbindung.
     /// </summary>
-    public class ConnectionInfo
+    internal class ConnectionInfo
     {
-        public string _travelDuration;
-        public string _departureTime;
-        public string _arrivalTime;
-        public string _startStationName;
-        public string _endStationName;
-        public string _startPlatform;
+        internal string _travelDuration;
+        internal string _departureTime;
+        internal string _arrivalTime;
+        internal string _startStationName;
+        internal string _endStationName;
+        internal string _startPlatform;
 
         /// <summary>
         /// Formatiert die mitgegebenen Informationen.
@@ -27,7 +27,7 @@ namespace SwissTransport
         /// <param name="ConnectionPointFrom">Der ConnectionPoint von welchem gestartet wird.</param>
         /// <param name="ConnectionPoinTo">Der ConnectionPoint des Zieles.</param>
         /// <param name="duration">Die Dauer der Reise.</param>
-        public ConnectionInfo(ConnectionPoint ConnectionPointFrom, ConnectionPoint ConnectionPoinTo, string duration)
+        internal ConnectionInfo(ConnectionPoint ConnectionPointFrom, ConnectionPoint ConnectionPoinTo, string duration)
         {
             SetTimes(ConnectionPointFrom, ConnectionPoinTo);
             SetDuration(duration);

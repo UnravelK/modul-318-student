@@ -5,7 +5,7 @@ namespace SwissTransportGUI
 {
     public partial class VerbindungenControl : UserControl
     {
-        private GUIFunctions _GUIFunction = new GUIFunctions();
+        private GUIFunctions _GUIFunction = GUIFunctions.GetInstance();
 
         public VerbindungenControl()
         {
@@ -26,7 +26,5 @@ namespace SwissTransportGUI
         {
             _GUIFunction.DisplayConnections(lbConnections, cbVon.Text, cbNach.Text);
         }
-
-
     }
 }

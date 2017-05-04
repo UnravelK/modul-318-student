@@ -14,8 +14,19 @@ namespace SwissTransportGUI
     class GUIFunctions
     {
         private ITransport _Transport = new Transport();
+        private static GUIFunctions _Instance = null;
 
-        public GUIFunctions() { }
+        private GUIFunctions() { }
+
+        /// <summary>
+        /// Prüft ob bereits eine Instanz vorhanden ist, erstellt sie gegebenenfalls und gibt sie zurück.
+        /// </summary>
+        /// <returns>Die GUIFunctions Instanz.</returns>
+        internal static GUIFunctions GetInstance()
+        {
+            if (_Instance == null) _Instance = new GUIFunctions();
+            return _Instance;
+        }
 
         /// <summary>
         /// Bietet eine Vervollständigungsauswahl von Stationen in einer ComboBox an.
@@ -26,6 +37,7 @@ namespace SwissTransportGUI
             string oldText = cbTarget.Text;
             await Task.Delay(500);
             if (oldText == cbTarget.Text)
+
             {
                 Stations Stations = _Transport.GetStations(cbTarget.Text + ",");
                 cbTarget.Items.Clear();

@@ -5,7 +5,7 @@ namespace SwissTransportGUI
 {
     public partial class StationsfahrplanControl : UserControl
     {
-        private GUIFunctions _GUIFunctions = new GUIFunctions();
+        private GUIFunctions _GUIFunctions = GUIFunctions.GetInstance();
 
         public StationsfahrplanControl()
         {
