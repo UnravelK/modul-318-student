@@ -54,6 +54,7 @@ namespace SwissTransportGUI
         /// <param name="lbTarget">Die ListBox welche die Stationen anzeigen soll.</param>
         /// <param name="lblLocation">Das Label welches den Standort der Resultate anzeigt.</param>
         /// <param name="objStation">Die Station von welcher die momentane Anzeige angezeigt werden soll. Muss als Station gecastet werden können.</param>
+        /// <param name="displayMap">Gibt an ob die Karte angezeigt werden soll.</param>
         public void DisplayStationBoard(ListBox lbTarget, Label lblLocation, object objStation)
         {
             Station Station = (Station)objStation;
@@ -63,6 +64,36 @@ namespace SwissTransportGUI
             lblLocation.Text = StationBoardRoot.Station.Name;
             lblLocation.Visible = true;
             lbTarget.Visible = true;
+        }
+
+        /// <summary>
+        /// Zeigt eine Stationsanzeige in einer ListBox an und zeigt eine Karte des Standpunktes der Dation in der PictureBox an.
+        /// </summary>
+        /// <param name="lbTarget">Die ListBox welche die Stationen anzeigen soll.</param>
+        /// <param name="lblLocation">Das Label welches den Standort der Resultate anzeigt.</param>
+        /// <param name="objStation">Die Station von welcher die momentane Anzeige angezeigt werden soll. Muss als Station gecastet werden können.</param>
+        /// <param name="displayMap">Gibt an ob die Karte angezeigt werden soll.</param>
+        /// <param name="pbMap">Die PictureBox in welcher gegebenenfalls die Karte angezeigt wird.</param>
+        public void DisplayStationBoard(ListBox lbTarget, Label lblLocation, object objStation, PictureBox pbMap)
+        {
+            Station Station = (Station)objStation;
+            DisplayMap(pbMap, Station.Coordinate);
+            StationBoardRoot StationBoardRoot = _Transport.GetStationBoard(Station.Name, Station.Id);
+            lbTarget.Items.Clear();
+            lbTarget.Items.AddRange(StationBoardRoot.Entries.ToArray());
+            lblLocation.Text = StationBoardRoot.Station.Name;
+            lblLocation.Visible = true;
+            lbTarget.Visible = true;
+        }
+
+        /// <summary>
+        /// Zeigt den ConnectionPoint auf der PictureBox an.
+        /// </summary>
+        /// <param name="pbMap">ie PictureBox auf der die Karte erscheint.</param>
+        /// <param name="Coordinates">Die Coordinaten welche angezeigt werden.</param>
+        private void DisplayMap(PictureBox pbMap, Coordinate Coordinates)
+        {
+
         }
 
         /// <summary>
