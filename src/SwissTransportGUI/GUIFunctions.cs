@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
+using System.Net;
 
 namespace SwissTransportGUI
 {
@@ -31,15 +32,30 @@ namespace SwissTransportGUI
         /// <param name="cbTarget">Die ComboBox welche die Suchhilfe erhalten soll.</param>
         public async Task SearchStationsHelper(ComboBox cbTarget)
         {
-            string oldText = cbTarget.Text;
-            await Task.Delay(500);
-            if (oldText == cbTarget.Text && cbTarget.SelectedIndex == -1)
+            try
             {
-                Stations Stations = _Transport.GetStations(cbTarget.Text + ",");
-                cbTarget.Items.Clear();
-                cbTarget.DroppedDown = true;
-                cbTarget.Items.AddRange(Stations.StationList.ToArray());
-                cbTarget.SelectionStart = cbTarget.Text.Length;
+                string oldText = cbTarget.Text;
+                await Task.Delay(350);
+                if (oldText == cbTarget.Text && cbTarget.SelectedIndex == -1 && cbTarget.Text.Length > 3)
+                {
+                    Stations Stations = _Transport.GetStations(cbTarget.Text + ",");
+                    if (cbTarget.Focused)
+                    {
+                        cbTarget.Items.Clear();
+                        cbTarget.DroppedDown = true;
+                        cbTarget.Items.AddRange(Stations.StationList.ToArray());
+                        cbTarget.SelectionStart = cbTarget.Text.Length;
+                    }
+                    else return;
+                }
+            }
+            catch (WebException Ex)
+            {
+                MessageBox.Show("Verbindung zum Webserver fehlgeschlagen. " + Ex.Message, "Verbindungsfehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unbekannter Fehler: " + Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -52,16 +68,33 @@ namespace SwissTransportGUI
         /// <param name="displayMap">Gibt an ob die Karte angezeigt werden soll.</param>
         public void DisplayStationBoard(ListView lvTarget, Label lblLocation, object objStation)
         {
-            Station Station = (Station)objStation;
-            StationBoardInfo StationBoardInfo;
-            StationBoardRoot StationBoardRoot = _Transport.GetStationBoard(Station.Name, Station.Id);
-            lvTarget.Items.Clear();
-            foreach (StationBoard StationBoard in StationBoardRoot.Entries)
+            Station Station = null;
+            if (objStation != null) Station = (Station)objStation;
+            else
             {
-                StationBoardInfo = new StationBoardInfo(StationBoard);
-                lvTarget.Items.Add(new ListViewItem(StationBoardInfo.GetInfos()));
+                MessageBox.Show("Bitte eine vorgeschlagene Station aufwählen.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            lblLocation.Text = StationBoardRoot.Station.Name;
+            StationBoardInfo StationBoardInfo;
+            lvTarget.Items.Clear();
+            try
+            {
+                StationBoardRoot StationBoardRoot = _Transport.GetStationBoard(Station.Name, Station.Id);
+                foreach (StationBoard StationBoard in StationBoardRoot.Entries)
+                {
+                    StationBoardInfo = new StationBoardInfo(StationBoard);
+                    lvTarget.Items.Add(new ListViewItem(StationBoardInfo.GetInfos()));
+                }
+                lblLocation.Text = StationBoardRoot.Station.Name;
+            }
+            catch (WebException Ex)
+            {
+                MessageBox.Show("Verbindung zum Webserver fehlgeschlagen. " + Ex.Message, "Verbindungsfehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unbekannter Fehler: " + Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             lblLocation.Visible = true;
             lvTarget.Visible = true;
         }
@@ -74,13 +107,24 @@ namespace SwissTransportGUI
         /// <param name="targetStation">Name der Station zu welcher gefahren werden möchte.</param>
         public void DisplayConnections(ListView lvTarget, string startStation, string targetStaion, DateTime dtDate)
         {
-            Connections Connections = _Transport.GetConnections(startStation, targetStaion, dtDate);
-            ConnectionInfo ConnectionInfo;
             lvTarget.Items.Clear();
-            foreach (Connection Connection in Connections.ConnectionList)
+            try
             {
-                ConnectionInfo = new ConnectionInfo(Connection);
-                lvTarget.Items.Add(new ListViewItem(ConnectionInfo.GetInfos()));
+                Connections Connections = _Transport.GetConnections(startStation, targetStaion, dtDate);
+                ConnectionInfo ConnectionInfo;
+                foreach (Connection Connection in Connections.ConnectionList)
+                {
+                    ConnectionInfo = new ConnectionInfo(Connection);
+                    lvTarget.Items.Add(new ListViewItem(ConnectionInfo.GetInfos()));
+                }
+            }
+            catch (WebException Ex)
+            {
+                MessageBox.Show("Verbindung zum Webserver fehlgeschlagen. " + Ex.Message, "Verbindungsfehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Unbekannter Fehler: " + Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             lvTarget.Visible = true;
         }
