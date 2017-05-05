@@ -15,37 +15,45 @@ namespace SwissTransport
     /// <summary>
     /// Enthält formatierte Informationen über eine Stations-Anzeige.
     /// </summary>
-    internal class StationBoardInfo
+    public class StationBoardInfo
     {
-        internal string _name;
-        internal string _targetLocation;
-        internal string _depatureTime;
+        private StationBoard _StationBoard;
+        public string _name;
+        public string _targetLocation;
+        public string _depatureTime;
 
         /// <summary>
         /// Formatiert die mitgegebenen Informationen.
         /// </summary>
-        /// <param name="dtDeparture">Der Abfahrtszeitpunkt der Verbindung.</param>
-        /// <param name="vehicleName">Der name des Verkehrsmittel welches benützt wird.</param>
-        /// <param name="endStation">Die Richtung in welcher der Zug fährt.</param>
-        internal StationBoardInfo(DateTime dtDeparture, string vehicleName, string endStation)
+        /// <param name="StationBoard">Das StationBoard von welchem die Informationen angezeigt werden soll.</param>
+        public StationBoardInfo(StationBoard StationBoard)
         {
-            SetName(vehicleName);
-            SetTargetLocation(endStation);
-            SetDepartureTime(dtDeparture);
+            _StationBoard = StationBoard;
+            SetName();
+            SetTargetLocation();
+            SetDepartureTime();
         }
-        private void SetName(string name)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetInfos()
         {
-            _name = name;
+            return new string[] {_name, _depatureTime , _targetLocation };
+        }
+        private void SetName()
+        {
+            _name = _StationBoard.Name;
         }
 
-        private void SetTargetLocation(string to)
+        private void SetTargetLocation()
         {
-            _targetLocation = to;
+            _targetLocation = _StationBoard.To;
         }
 
-        private void SetDepartureTime(DateTime dtDeparture)
+        private void SetDepartureTime()
         {
-            _depatureTime = dtDeparture.ToShortTimeString();
+            _depatureTime = _StationBoard.Stop.Departure.ToShortTimeString();
         }
     }
 
@@ -68,15 +76,6 @@ namespace SwissTransport
 
         [JsonProperty("stop")]
         public Stop Stop { get; set; }
-        /// <summary>
-        /// Überschreibt die ToString-Methode von der Klasse StationBoard.
-        /// </summary>
-        /// <returns>Formatierte Stationsinformationen.</returns>
-        public override string ToString()
-        {
-            StationBoardInfo SBI = new StationBoardInfo(Stop.Departure, Name, To);
-            return SBI._name + "\t" + SBI._targetLocation + "\t" + SBI._depatureTime;
-        }
     }
 
     public class Stop

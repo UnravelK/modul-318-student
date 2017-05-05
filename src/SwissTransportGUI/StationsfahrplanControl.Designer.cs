@@ -31,9 +31,9 @@
             this.lblTitel = new System.Windows.Forms.Label();
             this.lblStation = new System.Windows.Forms.Label();
             this.cbStation = new System.Windows.Forms.ComboBox();
-            this.lbBoard = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblStationName = new System.Windows.Forms.Label();
+            this.lvBoard = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblTitel
@@ -49,7 +49,7 @@
             // lblStation
             // 
             this.lblStation.AutoSize = true;
-            this.lblStation.Location = new System.Drawing.Point(25, 46);
+            this.lblStation.Location = new System.Drawing.Point(56, 45);
             this.lblStation.Name = "lblStation";
             this.lblStation.Size = new System.Drawing.Size(56, 17);
             this.lblStation.TabIndex = 0;
@@ -57,27 +57,16 @@
             // 
             // cbStation
             // 
-            this.cbStation.Location = new System.Drawing.Point(83, 46);
+            this.cbStation.Location = new System.Drawing.Point(114, 45);
             this.cbStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbStation.Name = "cbStation";
             this.cbStation.Size = new System.Drawing.Size(172, 24);
             this.cbStation.TabIndex = 0;
             this.cbStation.TextChanged += new System.EventHandler(this.CbStation_TextChanged);
             // 
-            // lbBoard
-            // 
-            this.lbBoard.FormattingEnabled = true;
-            this.lbBoard.ItemHeight = 16;
-            this.lbBoard.Location = new System.Drawing.Point(19, 185);
-            this.lbBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbBoard.Name = "lbBoard";
-            this.lbBoard.Size = new System.Drawing.Size(456, 292);
-            this.lbBoard.TabIndex = 2;
-            this.lbBoard.Visible = false;
-            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(298, 47);
+            this.btnSearch.Location = new System.Drawing.Point(329, 46);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
@@ -96,19 +85,30 @@
             this.lblStationName.Text = "Stationname";
             this.lblStationName.Visible = false;
             // 
+            // lvBoard
+            // 
+            this.lvBoard.FullRowSelect = true;
+            this.lvBoard.Location = new System.Drawing.Point(28, 184);
+            this.lvBoard.Name = "lvBoard";
+            this.lvBoard.Size = new System.Drawing.Size(548, 313);
+            this.lvBoard.TabIndex = 2;
+            this.lvBoard.UseCompatibleStateImageBehavior = false;
+            this.lvBoard.View = System.Windows.Forms.View.Details;
+            this.lvBoard.Visible = false;
+            // 
             // StationsfahrplanControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lvBoard);
             this.Controls.Add(this.lblStationName);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.lbBoard);
             this.Controls.Add(this.cbStation);
             this.Controls.Add(this.lblStation);
             this.Controls.Add(this.lblTitel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StationsfahrplanControl";
-            this.Size = new System.Drawing.Size(500, 500);
+            this.Size = new System.Drawing.Size(600, 500);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,8 +119,8 @@
         private System.Windows.Forms.Label lblTitel;
         private System.Windows.Forms.Label lblStation;
         private System.Windows.Forms.ComboBox cbStation;
-        private System.Windows.Forms.ListBox lbBoard;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblStationName;
+        private System.Windows.Forms.ListView lvBoard;
     }
 }

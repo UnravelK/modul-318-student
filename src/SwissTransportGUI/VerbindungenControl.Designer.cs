@@ -37,14 +37,14 @@
             this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.lblDatum = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.lbConnections = new System.Windows.Forms.ListBox();
+            this.lvConnections = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // datePicker
             // 
             this.datePicker.CustomFormat = "dd.MM.yyyy";
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(83, 135);
+            this.datePicker.Location = new System.Drawing.Point(112, 136);
             this.datePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datePicker.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.datePicker.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -56,7 +56,7 @@
             // lblVon
             // 
             this.lblVon.AutoSize = true;
-            this.lblVon.Location = new System.Drawing.Point(25, 46);
+            this.lblVon.Location = new System.Drawing.Point(54, 47);
             this.lblVon.Name = "lblVon";
             this.lblVon.Size = new System.Drawing.Size(37, 17);
             this.lblVon.TabIndex = 0;
@@ -65,7 +65,7 @@
             // lblNach
             // 
             this.lblNach.AutoSize = true;
-            this.lblNach.Location = new System.Drawing.Point(25, 82);
+            this.lblNach.Location = new System.Drawing.Point(54, 83);
             this.lblNach.Name = "lblNach";
             this.lblNach.Size = new System.Drawing.Size(45, 17);
             this.lblNach.TabIndex = 0;
@@ -84,7 +84,7 @@
             // cbNach
             // 
             this.cbNach.FormattingEnabled = true;
-            this.cbNach.Location = new System.Drawing.Point(83, 82);
+            this.cbNach.Location = new System.Drawing.Point(112, 83);
             this.cbNach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNach.Name = "cbNach";
             this.cbNach.Size = new System.Drawing.Size(212, 24);
@@ -94,7 +94,7 @@
             // cbVon
             // 
             this.cbVon.FormattingEnabled = true;
-            this.cbVon.Location = new System.Drawing.Point(83, 46);
+            this.cbVon.Location = new System.Drawing.Point(112, 47);
             this.cbVon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbVon.Name = "cbVon";
             this.cbVon.Size = new System.Drawing.Size(212, 24);
@@ -105,7 +105,7 @@
             // 
             this.timePicker.CustomFormat = "HH:mm";
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timePicker.Location = new System.Drawing.Point(229, 135);
+            this.timePicker.Location = new System.Drawing.Point(258, 136);
             this.timePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.timePicker.MinDate = new System.DateTime(2017, 4, 27, 0, 0, 0, 0);
@@ -118,7 +118,7 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(25, 135);
+            this.lblDatum.Location = new System.Drawing.Point(54, 136);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(53, 17);
             this.lblDatum.TabIndex = 0;
@@ -126,7 +126,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(356, 85);
+            this.btnSearch.Location = new System.Drawing.Point(385, 86);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
@@ -135,22 +135,22 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // lbConnections
+            // lvConnections
             // 
-            this.lbConnections.FormattingEnabled = true;
-            this.lbConnections.ItemHeight = 16;
-            this.lbConnections.Location = new System.Drawing.Point(3, 190);
-            this.lbConnections.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbConnections.Name = "lbConnections";
-            this.lbConnections.Size = new System.Drawing.Size(495, 308);
-            this.lbConnections.TabIndex = 6;
-            this.lbConnections.Visible = false;
+            this.lvConnections.FullRowSelect = true;
+            this.lvConnections.Location = new System.Drawing.Point(14, 208);
+            this.lvConnections.Name = "lvConnections";
+            this.lvConnections.Size = new System.Drawing.Size(568, 289);
+            this.lvConnections.TabIndex = 6;
+            this.lvConnections.UseCompatibleStateImageBehavior = false;
+            this.lvConnections.View = System.Windows.Forms.View.Details;
+            this.lvConnections.Visible = false;
             // 
             // VerbindungenControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbConnections);
+            this.Controls.Add(this.lvConnections);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.timePicker);
@@ -162,7 +162,7 @@
             this.Controls.Add(this.cbVon);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VerbindungenControl";
-            this.Size = new System.Drawing.Size(500, 500);
+            this.Size = new System.Drawing.Size(600, 500);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +179,6 @@
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ListBox lbConnections;
+        private System.Windows.Forms.ListView lvConnections;
     }
 }

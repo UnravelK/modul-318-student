@@ -50,29 +50,39 @@ namespace SwissTransportGUI
         /// <param name="lblLocation">Das Label welches den Standort der Resultate anzeigt.</param>
         /// <param name="objStation">Die Station von welcher die momentane Anzeige angezeigt werden soll. Muss als Station gecastet werden können.</param>
         /// <param name="displayMap">Gibt an ob die Karte angezeigt werden soll.</param>
-        public void DisplayStationBoard(ListBox lbTarget, Label lblLocation, object objStation)
+        public void DisplayStationBoard(ListView lvTarget, Label lblLocation, object objStation)
         {
             Station Station = (Station)objStation;
+            StationBoardInfo StationBoardInfo;
             StationBoardRoot StationBoardRoot = _Transport.GetStationBoard(Station.Name, Station.Id);
-            lbTarget.Items.Clear();
-            lbTarget.Items.AddRange(StationBoardRoot.Entries.ToArray());
+            lvTarget.Items.Clear();
+            foreach (StationBoard StationBoard in StationBoardRoot.Entries)
+            {
+                StationBoardInfo = new StationBoardInfo(StationBoard);
+                lvTarget.Items.Add(new ListViewItem(StationBoardInfo.GetInfos()));
+            }
             lblLocation.Text = StationBoardRoot.Station.Name;
             lblLocation.Visible = true;
-            lbTarget.Visible = true;
+            lvTarget.Visible = true;
         }
 
         /// <summary>
         /// Zeigt die erhaltenen Verbindungen in einer ListBox an.
         /// </summary>
-        /// <param name="lbTarget">Die ListBox in welcher die Verbindungen angezeigt werden.</param>
+        /// <param name="lvTarget">Die ListView in welcher die Verbindungen angezeigt werden.</param>
         /// <param name="startStation">Name der Station von welcher gestartet werden soll.</param>
         /// <param name="targetStation">Name der Station zu welcher gefahren werden möchte.</param>
-        public void DisplayConnections(ListBox lbTarget, string startStation, string targetStaion, DateTime dtDate)
+        public void DisplayConnections(ListView lvTarget, string startStation, string targetStaion, DateTime dtDate)
         {
             Connections Connections = _Transport.GetConnections(startStation, targetStaion, dtDate);
-            lbTarget.Items.Clear();
-            lbTarget.Items.AddRange(Connections.ConnectionList.ToArray());
-            lbTarget.Visible = true;
+            ConnectionInfo ConnectionInfo;
+            lvTarget.Items.Clear();
+            foreach (Connection Connection in Connections.ConnectionList)
+            {
+                ConnectionInfo = new ConnectionInfo(Connection);
+                lvTarget.Items.Add(new ListViewItem(ConnectionInfo.GetInfos()));
+            }
+            lvTarget.Visible = true;
         }
     }
 }

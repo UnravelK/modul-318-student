@@ -12,38 +12,46 @@ namespace SwissTransport
     /// <summary>
     /// Enthält formatierte Informationen über eine Verbindung.
     /// </summary>
-    internal class ConnectionInfo
+    public class ConnectionInfo
     {
-        internal string _travelDuration;
-        internal string _departureTime;
-        internal string _arrivalTime;
-        internal string _startStationName;
-        internal string _endStationName;
-        internal string _startPlatform;
+        private Connection _Connection;
+        public string _travelDuration;
+        public string _departureTime;
+        public string _arrivalTime;
+        public string _startStationName;
+        public string _endStationName;
+        public string _startPlatform;
 
         /// <summary>
         /// Formatiert die mitgegebenen Informationen.
         /// </summary>
-        /// <param name="ConnectionPointFrom">Der ConnectionPoint von welchem gestartet wird.</param>
-        /// <param name="ConnectionPoinTo">Der ConnectionPoint des Zieles.</param>
-        /// <param name="duration">Die Dauer der Reise.</param>
-        internal ConnectionInfo(ConnectionPoint ConnectionPointFrom, ConnectionPoint ConnectionPoinTo, string duration)
+        /// <param name="Connection">Die Verbindung von welcher Infos angezeigt werden sollen.</param>
+        public ConnectionInfo(Connection Connection)
         {
-            SetTimes(ConnectionPointFrom, ConnectionPoinTo);
-            SetDuration(duration);
-            SetNames(ConnectionPointFrom, ConnectionPoinTo);
-            SetStartPlatform(ConnectionPointFrom);
+            _Connection = Connection;
+            SetTimes();
+            SetDuration();
+            SetNames();
+            SetStartPlatform();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetInfos()
+        {
+            return new string[] { _startStationName,_startPlatform, _departureTime, _endStationName, _arrivalTime, _travelDuration };
         }
 
-        private void SetTimes(ConnectionPoint From, ConnectionPoint To)
+        private void SetTimes()
         {
-            _departureTime = Convert.ToDateTime(From.Departure).ToShortTimeString();
-            _arrivalTime = Convert.ToDateTime(To.Arrival).ToShortTimeString();
+            _departureTime = Convert.ToDateTime(_Connection.From.Departure).ToShortTimeString();
+            _arrivalTime = Convert.ToDateTime(_Connection.To.Arrival).ToShortTimeString();
         }
 
-        private void SetDuration(string Duration)
+        private void SetDuration()
         {
-            string[] temp = Duration.Split('d')[1].Split(':');
+            string[] temp = _Connection.Duration.Split('d')[1].Split(':');
             string hours = temp[0];
             string minutes = temp[1];
             if (hours == "00")
@@ -59,15 +67,15 @@ namespace SwissTransport
             _travelDuration = hours + " h " + minutes + " m";
         }
 
-        private void SetNames(ConnectionPoint From, ConnectionPoint To)
+        private void SetNames()
         {
-            _startStationName = From.Station.Name;
-            _endStationName = To.Station.Name;
+            _startStationName = _Connection.From.Station.Name;
+            _endStationName = _Connection.To.Station.Name;
         }
 
-        private void SetStartPlatform(ConnectionPoint From)
+        private void SetStartPlatform()
         {
-            _startPlatform = "Gleis. " + From.Platform;
+            _startPlatform = "Gleis. " + _Connection.From.Platform;
         }
     }
 
@@ -81,15 +89,6 @@ namespace SwissTransport
 
         [JsonProperty("duration")]
         public string Duration { get; set; }
-        /// <summary>
-        /// Überschreibt die ToString-Methode von der Klasse Connection.
-        /// </summary>
-        /// <returns>Die formatierten Verbindungsinformationen.</returns>
-        public override string ToString()
-        {
-            ConnectionInfo CF = new ConnectionInfo(From, To, Duration);
-            return CF._startStationName + "\t" + CF._startPlatform + "\t" + CF._departureTime + "\t" + CF._endStationName + "\t" + CF._arrivalTime;
-        }
     }
 
     public class ConnectionPoint
