@@ -76,7 +76,7 @@ namespace SwissTransport
 
         private void SetStartPlatform()
         {
-            _startPlatform = "Gleis. " + _Connection.From.Platform;
+            _startPlatform = _Connection.From.Platform;
         }
     }
 

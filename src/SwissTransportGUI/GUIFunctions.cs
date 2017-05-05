@@ -72,7 +72,7 @@ namespace SwissTransportGUI
             if (objStation != null) Station = (Station)objStation;
             else
             {
-                MessageBox.Show("Bitte eine vorgeschlagene Station aufwählen.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bitte eine vorgeschlagene Station auswählen.", "Ungültige Station", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             StationBoardInfo StationBoardInfo;
@@ -97,6 +97,18 @@ namespace SwissTransportGUI
             }
             lblLocation.Visible = true;
             lvTarget.Visible = true;
+        }
+
+        /// <summary>
+        /// Tauscht den Text der beiden ComboBoxen.
+        /// </summary>
+        /// <param name="cbFrom">Die erste ComboBox.</param>
+        /// <param name="cbTo">Die zweite ComboBox.</param>
+        public void SwapConnectionPoints(ComboBox cbFrom, ComboBox cbTo)
+        {
+            string textFrom = cbFrom.Text;
+            cbFrom.Text = cbTo.Text;
+            cbTo.Text = textFrom;
         }
 
         /// <summary>

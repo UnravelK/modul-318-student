@@ -36,5 +36,10 @@ namespace SwissTransportGUI
         {
             await _GUIFunctions.SearchStationsHelper(cbNach);
         }
+
+        private void BtnSwap_Click(object sender, EventArgs e)
+        {
+            _GUIFunctions.SwapConnectionPoints(cbVon, cbNach);
+        }
     }
 }

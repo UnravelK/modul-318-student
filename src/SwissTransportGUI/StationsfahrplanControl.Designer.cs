@@ -78,7 +78,7 @@
             // lblStationName
             // 
             this.lblStationName.AutoSize = true;
-            this.lblStationName.Location = new System.Drawing.Point(25, 164);
+            this.lblStationName.Location = new System.Drawing.Point(25, 168);
             this.lblStationName.Name = "lblStationName";
             this.lblStationName.Size = new System.Drawing.Size(87, 17);
             this.lblStationName.TabIndex = 0;
@@ -88,9 +88,9 @@
             // lvBoard
             // 
             this.lvBoard.FullRowSelect = true;
-            this.lvBoard.Location = new System.Drawing.Point(28, 184);
+            this.lvBoard.Location = new System.Drawing.Point(15, 200);
             this.lvBoard.Name = "lvBoard";
-            this.lvBoard.Size = new System.Drawing.Size(548, 313);
+            this.lvBoard.Size = new System.Drawing.Size(565, 280);
             this.lvBoard.TabIndex = 2;
             this.lvBoard.UseCompatibleStateImageBehavior = false;
             this.lvBoard.View = System.Windows.Forms.View.Details;

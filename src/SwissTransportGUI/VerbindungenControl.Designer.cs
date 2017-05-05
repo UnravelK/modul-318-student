@@ -38,6 +38,7 @@
             this.lblDatum = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lvConnections = new System.Windows.Forms.ListView();
+            this.btnSwap = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // datePicker
@@ -126,10 +127,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(385, 86);
+            this.btnSearch.Location = new System.Drawing.Point(329, 114);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(81, 23);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Suchen";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -138,18 +139,30 @@
             // lvConnections
             // 
             this.lvConnections.FullRowSelect = true;
-            this.lvConnections.Location = new System.Drawing.Point(14, 208);
+            this.lvConnections.Location = new System.Drawing.Point(15, 200);
             this.lvConnections.Name = "lvConnections";
-            this.lvConnections.Size = new System.Drawing.Size(568, 289);
+            this.lvConnections.Size = new System.Drawing.Size(565, 280);
             this.lvConnections.TabIndex = 6;
             this.lvConnections.UseCompatibleStateImageBehavior = false;
             this.lvConnections.View = System.Windows.Forms.View.Details;
             this.lvConnections.Visible = false;
             // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(330, 66);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(80, 24);
+            this.btnSwap.TabIndex = 0;
+            this.btnSwap.TabStop = false;
+            this.btnSwap.Text = "Tauschen";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.BtnSwap_Click);
+            // 
             // VerbindungenControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSwap);
             this.Controls.Add(this.lvConnections);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblDatum);
@@ -180,5 +193,6 @@
         private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ListView lvConnections;
+        private System.Windows.Forms.Button btnSwap;
     }
 }
