@@ -6,15 +6,11 @@ namespace SwissTransportGUI
     public partial class StationsfahrplanControl : UserControl
     {
         private GUIFunctions _GUIFunctions = GUIFunctions.GetInstance();
-        public Button AcceptButton
-        {
-            get { return btnSearch;}
-        }
+        public Button AcceptButton { get { return btnSearch; } }
 
         public StationsfahrplanControl()
         {
             InitializeComponent();
-
             lvBoard.Columns.Add("Typ:", 70);
             lvBoard.Columns.Add("Ab:", 70);
             lvBoard.Columns.Add("Nach:", 250);

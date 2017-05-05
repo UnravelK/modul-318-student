@@ -36,6 +36,7 @@ namespace SwissTransportGUI
             {
                 string oldText = cbTarget.Text;
                 await Task.Delay(350);
+                //Prüft ob sich der Text in den letzten 350 Millisekunden verändert hat, kein Item ausgewählt ist und ob der Text mindestens 3 Zeichen lang ist.
                 if (oldText == cbTarget.Text && cbTarget.SelectedIndex == -1 && cbTarget.Text.Length > 3)
                 {
                     Stations Stations = _Transport.GetStations(cbTarget.Text + ",");
@@ -60,12 +61,11 @@ namespace SwissTransportGUI
         }
 
         /// <summary>
-        /// Zeigt die Stationsanzeige in einer ListBox an.
+        /// Zeigt die Stationsanzeige in einer ListView an.
         /// </summary>
-        /// <param name="lbTarget">Die ListBox welche die Stationen anzeigen soll.</param>
+        /// <param name="lvTarget">Die ListBox welche die Stationen anzeigen soll.</param>
         /// <param name="lblLocation">Das Label welches den Standort der Resultate anzeigt.</param>
-        /// <param name="objStation">Die Station von welcher die momentane Anzeige angezeigt werden soll. Muss als Station gecastet werden können.</param>
-        /// <param name="displayMap">Gibt an ob die Karte angezeigt werden soll.</param>
+        /// <param name="objStation">Das Station's Objekt von welchem das Station-Board angezeigt wird.</param>
         public void DisplayStationBoard(ListView lvTarget, Label lblLocation, object objStation)
         {
             Station Station = null;
@@ -100,11 +100,12 @@ namespace SwissTransportGUI
         }
 
         /// <summary>
-        /// Zeigt die erhaltenen Verbindungen in einer ListBox an.
+        /// Zeigt die erhaltenen Verbindungen in einer ListView an.
         /// </summary>
         /// <param name="lvTarget">Die ListView in welcher die Verbindungen angezeigt werden.</param>
         /// <param name="startStation">Name der Station von welcher gestartet werden soll.</param>
         /// <param name="targetStation">Name der Station zu welcher gefahren werden möchte.</param>
+        /// <param name="dtDate">Das Datum ab welchem gesucht werden soll.</param>
         public void DisplayConnections(ListView lvTarget, string startStation, string targetStaion, DateTime dtDate)
         {
             lvTarget.Items.Clear();

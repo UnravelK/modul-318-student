@@ -1,6 +1,3 @@
-validierung bei suche von verbindungen und stationen
-allgemeine fehlerprevention
 TESTFÄlle
 installationsanleitung mit benötigten dateien in seperatem ortner vom gitrepo
 adminrechte!!!
-kommentäre anpassen

@@ -35,9 +35,9 @@ namespace SwissTransport
             SetStartPlatform();
         }
         /// <summary>
-        /// 
+        /// Erstellt ein Stringarray aus den formatierten Informationen.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Die formatierten Informationen.</returns>
         public string[] GetInfos()
         {
             return new string[] { _startStationName,_startPlatform, _departureTime, _endStationName, _arrivalTime, _travelDuration };
@@ -51,6 +51,7 @@ namespace SwissTransport
 
         private void SetDuration()
         {
+            //Duration-Format = 00d00:00:00
             string[] temp = _Connection.Duration.Split('d')[1].Split(':');
             string hours = temp[0];
             string minutes = temp[1];

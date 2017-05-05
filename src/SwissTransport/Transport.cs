@@ -9,6 +9,7 @@ namespace SwissTransport
     {
         public Stations GetStations(string query)
         {
+            //"&type=station" zu query hinzugefügt um nur Stationen zurück zu bekommen.
             query += "&type=station";
             var request = CreateWebRequest("http://transport.opendata.ch/v1/locations?query=" + query);
             var response = request.GetResponse();
@@ -57,17 +58,19 @@ namespace SwissTransport
 
             return null;
         }
+
         /// <summary>
         /// Git alle Verbindungen zurück welche ab dem gegebenen Datum zwischen den gegebenen Stationen fahren.
         /// </summary>
         /// <param name="fromStation">Der Name der  Station von welcher die Reise startet.</param>
-        /// <param name="toStattion">Der Name der  Station von welcher die Reise endet.</param>
+        /// <param name="toStation">Der Name der  Station von welcher die Reise endet.</param>
         /// <param name="dtDate">Das Datum ab welchem die Verbindungen angezeigt werden sollen.</param>
         /// <returns></returns>
-        public Connections GetConnections(string fromStation, string toStattion, DateTime dtDate)
+        public Connections GetConnections(string fromStation, string toStation, DateTime dtDate)
         {
+            //hinzufügen des Datums und der Zeit im vorgeschriebenen Format.
             string dateOption = "&date=" + dtDate.Year + "-" + dtDate.Month + "-" + dtDate.Day + "&time=" + dtDate.Hour + ":" + dtDate.Minute;
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStattion + dateOption);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStation + dateOption);
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 

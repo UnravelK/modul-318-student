@@ -34,9 +34,9 @@ namespace SwissTransport
             SetDepartureTime();
         }
         /// <summary>
-        /// 
+        /// Erstellt ein Stringarray aus den formatierten Informationen.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Die formatierten Informationen.</returns>
         public string[] GetInfos()
         {
             return new string[] {_name, _depatureTime , _targetLocation };
