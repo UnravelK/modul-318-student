@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Setup Wizard"
+"ProjectName" = "8:Swiss Transport Setup"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -278,9 +278,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup Wizard"
+        "ProductName" = "8:SwissTransport"
         "ProductCode" = "8:{21414EC5-F527-4B3A-9F21-CB139C6AF8E7}"
-        "PackageCode" = "8:{282DA5B2-773C-4F9A-9983-B08DB63B5736}"
+        "PackageCode" = "8:{06E1959F-8C56-4889-970B-D3A510751A46}"
         "UpgradeCode" = "8:{2A22E220-4955-4E6E-AC2B-7CEB382D9AA4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -288,10 +288,10 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:Alex Bosshard"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Setup Wizard"
+        "Title" = "8:SwissTransport"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Bosshard Alex"
         "Keywords" = "8:"
@@ -402,7 +402,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AB30A361CDC4497DA0D60B62E4B48C35"
             {
-            "Name" = "8:SwissTransportGUI"
+            "Name" = "8:SwissTransport"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -468,28 +468,6 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_2FD732649B804AAA9E499DB57D931B5E"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_32038908BD1142C6B91195DFDEDDDEF4"
                     {
                     "Sequence" = "3:100"
