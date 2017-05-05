@@ -1,3 +1,0 @@
-TESTFÄlle
-installationsanleitung mit benötigten dateien in seperatem ortner vom gitrepo
-adminrechte!!!
